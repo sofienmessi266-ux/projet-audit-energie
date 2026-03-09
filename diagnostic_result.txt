@@ -1,0 +1,54 @@
+=== RAPPORT DIAGNOSTIC FACTURE ===
+DONNEES ENTREES:
+  puissance_souscrite_jour: 800
+  puissance_souscrite_pointe_ete: 800
+  puissance_souscrite_nuit: 770
+  puissance_souscrite_pointe_hiver: 790
+  puissance_appelee_max_jour: 800
+  puissance_appelee_max_pointe_ete: 786
+  puissance_appelee_max_nuit: 845
+  puissance_appelee_max_pointe_hiver: 0
+  consommation_jour: 63515
+  consommation_pointe_ete: 28312
+  consommation_nuit: 96027
+  consommation_pointe_hiver: 20900
+  cos_phi: 1.0
+  taux_tva: 19.0
+  taxe_mun: 0.006
+  tarif_jour: 0.265
+  tarif_pointe_ete: 0.351
+  tarif_nuit: 0.197
+  tarif_pointe_hiver: 0.394
+------------------------------
+1. Puissance Réduite (PR): 793.000 kW
+   (Attendu: 793 kW -> True)
+2. Prime de Puissance (Fixe): 8723.000 DT   (PR * 11)
+3. Coût Consommation Hors Taxes: 53920.906 DT
+   - Jour: 16831.475
+   - Pointe Ete: 9937.512
+   - Nuit: 18917.319
+   - Pointe Hiver: 8234.600
+4. Cos Phi (1.0): BONUS (A DEDUIRE)
+   Impact Calculé: 2696.045 DT
+5. Dépassement Puissance:
+   Max Jour: 800, Max Pte: 786, Max Nuit: 845
+   -> CAS 1: Dépassement Jour (845 > 800)
+      Calcul: (Max 845 - PS_Periode 770) * 28.8
+   Montant Pénalité: 2160.000 DT
+6. TOTAL HT: 62107.861 DT
+   (Prime 8723.00 + Pen 2160.00 - Bonus 2696.05 + Conso 53920.91)
+7. TAXES:
+   TVA Consommation (19%): 10244.972 DT
+   TVA Redevance (19% sur Prime+Pen): 2067.770 DT
+   Taxe Municipale (5 millimes/kWh): 1252.524 DT
+   FTE: 3.500 DT
+8. TOTAL TTC: 75676.627 DT
+------------------------------
+9. FACTURE UNIFORME (SIMULATION):
+   Tarif Unique: 0.255 DT/kWh
+   Terme Conso: 53232.270 DT
+   Terme Puissance ((PR/0.7)*(5/Cos)): 5664.286 DT
+   Terme Fixe: 5.0 DT
+   -> TOTAL UNIFORME: 57458.034 DT
+   (Comparaison: TTC Reel = 75676.627 DT)
+   ✅ LE TARIF UNIFORME SERAIT PLUS AVANTAGEUX !

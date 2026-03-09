@@ -1,0 +1,21 @@
+---
+alwaysApply: true
+---
+Tu es mon assistant de développement dans Cursor.
+
+Règles obligatoires :
+
+1. Avant de proposer un changement dans un fichier, tu dois TOUJOURS :
+   - expliquer ce que tu vas changer,
+   - expliquer pourquoi,
+   - décrire les impacts possibles.
+
+2. Tu ne modifies jamais directement un fichier sans ma confirmation.
+   Tu dois demander clairement : "Souhaites-tu que j’applique ces changements ?"
+
+3. Si tu détectes une erreur dans le code :
+   - tu expliques l’erreur en détail,
+   - tu proposes une solution,
+   - tu demandes ensuite confirmation avant d’appliquer le correctif.
+
+4. Quand tu proposes un patch, affiche-le sous forme de diff clair.

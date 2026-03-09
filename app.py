@@ -1,0 +1,94 @@
+import streamlit as st
+from database import init_database
+
+# Configuration de la page
+st.set_page_config(
+    page_title="Audit Énergétique",
+    page_icon="⚡",
+    layout="wide",
+    initial_sidebar_state="expanded"
+)
+
+# Initialiser la base de données
+init_database()
+
+# CSS personnalisé pour un design moderne
+st.markdown("""
+    <style>
+    .main-header {
+        font-size: 3rem;
+        font-weight: bold;
+        color: #1f77b4;
+        text-align: center;
+        margin-bottom: 2rem;
+    }
+    .sub-header {
+        font-size: 1.5rem;
+        color: #666;
+        text-align: center;
+        margin-bottom: 3rem;
+    }
+    .stButton>button {
+        width: 100%;
+        border-radius: 10px;
+        height: 3rem;
+        font-size: 1.1rem;
+    }
+    .metric-card {
+        background-color: #f0f2f6;
+        padding: 1rem;
+        border-radius: 10px;
+        margin: 0.5rem 0;
+    }
+    </style>
+""", unsafe_allow_html=True)
+
+# En-tête principal
+st.markdown('<h1 class="main-header">⚡ Audit Énergétique</h1>', unsafe_allow_html=True)
+st.markdown('<p class="sub-header">Gestion des factures énergétiques pour entreprises</p>', unsafe_allow_html=True)
+
+# Navigation
+st.sidebar.title("📋 Navigation")
+st.sidebar.markdown("---")
+
+page = st.sidebar.radio(
+    "Sélectionnez une page:",
+    ["🏠 Accueil", "⚡ Électricité", "🔥 Gaz", "⛽ Gazoil", "🏭 Production"],
+    label_visibility="collapsed"
+)
+
+if page == "🏠 Accueil":
+    st.markdown("""
+    ## Bienvenue dans l'application d'Audit Énergétique
+    
+    Cette application vous permet de gérer les factures énergétiques de votre entreprise.
+    
+    ### Fonctionnalités disponibles :
+    - **⚡ Électricité** : Gestion complète des factures d'électricité
+    - **🔥 Gaz** : Gestion des factures de gaz (à venir)
+    - **⛽ Gazoil** : Gestion des factures de gazoil (à venir)
+    
+    ### Utilisation :
+    Utilisez le menu de navigation à gauche pour accéder aux différentes sections.
+    """)
+elif page == "⚡ Électricité":
+    st.switch_page("pages/1_⚡_Electricite.py")
+elif page == "🔥 Gaz":
+    st.switch_page("pages/2_🔥_Gaz.py")
+elif page == "⛽ Gazoil":
+    st.switch_page("pages/3_⛽_Gazoil.py")
+elif page == "🏭 Production":
+    st.switch_page("pages/4_🏭_Production.py")
+
+
+
+
+
+
+
+
+
+
+
+
+

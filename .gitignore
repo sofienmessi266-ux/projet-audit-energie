@@ -1,0 +1,26 @@
+# Environments
+__pycache__/
+.venv/
+env/
+venv/
+.env
+
+# Database (Keep data private)
+*.db
+audit_energetique.db
+*.sqlite3
+
+# Build / Packaged App (PyInstaller)
+build/
+dist/
+*.spec
+
+# IDEs
+.vscode/
+.idea/
+
+# Streamlit specific
+.streamlit/credentials.toml
+
+# Models (optional, uncomment to ignore large ML models)
+# models/
